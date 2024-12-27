@@ -28,12 +28,13 @@ def sent_detector():
         return 'Invalid text! Please try again!'
 
     # delete dominant_emotion key from response
-    del response['dominant_emotion'] 
+    del response['dominant_emotion']
 
     # format response
     formatted_response = ", ".join(f"'{clave}': {valor}" for clave, valor in response.items())
+    dm_em_str = f'The dominant emotion is <b>{dominant_emotion}</b>.'
 
-    return f'For the given statement, the system response is {formatted_response}. The dominant emotion is <b>{dominant_emotion}</b>.'
+    return f'For the given statement, the system response is {formatted_response}. {dm_em_str}'
 
 @app.route("/")
 def render_index_page():
