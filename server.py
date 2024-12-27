@@ -24,6 +24,9 @@ def sent_detector():
     # get the dominant emotion value
     dominant_emotion = response['dominant_emotion']
 
+    if dominant_emotion == 'None':
+        return 'Invalid text! Please try again!'
+
     # delete dominant_emotion key from response
     del response['dominant_emotion'] 
 
